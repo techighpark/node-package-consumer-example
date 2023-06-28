@@ -1,0 +1,16 @@
+{
+  "name": "@techigh/client-storage",
+  "version": "0.0.2",
+  "description": "Cookie, session, localStorage handler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cookie",
+    "session",
+    "localStorage"
+  ],
+  "author": "@techigh <techigh.b@gmail.com>",
+  "license": "ISC"
+}
