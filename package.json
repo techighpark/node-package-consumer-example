@@ -1,0 +1,14 @@
+{
+  "name": "package-consumer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@techigh/package-example": "~0.0.2"
+  }
+}
