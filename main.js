@@ -1,4 +1,3 @@
-const useLocalStorage = require('@techigh/client-storage/useLocalStorage');
-const useCookie = require('@techigh/client-storage/useCookie');
-console.log(useCookie);
-console.log(useLocalStorage);
+const { useCookie, useLocalStorage } = require('@techigh/web-storage-handler')
+console.log(useCookie)
+console.log(useLocalStorage)

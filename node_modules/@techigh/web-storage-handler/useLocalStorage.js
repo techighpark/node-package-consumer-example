@@ -1,9 +1,11 @@
 const useLocalStorage = {}
 
+//---------------------------------------------------------------------------------------------
 /**
  * Sets an item in localStorage with the specified keyName and keyValue, and an optional expiration date.
- * If the keyName already exists in localStorage, the existing item with matching keyValue will be removed before adding the new item.
- *
+ * If the keyName already exists in localStorage, the existing item with matching keyValue
+ * will be removed before adding the new item.
+ * 
  * @param {String} keyName - The key name for the item to be stored in localStorage.
  * @param {*} value - The value to be stored in localStorage for the given keyName.
  * @param {Number} [expireDays] - Optional. The number of days until the stored item should expire.
@@ -15,7 +17,7 @@ useLocalStorage.setLocalItem = (keyName, value, expireDays) => {
 }
 
 
-
+//---------------------------------------------------------------------------------------------
 /**
  * @param {String} keyName - The key name for the item to be stored in localStorage.
  * @param {*} value - The value to be stored in localStorage for the given keyName.
@@ -49,18 +51,11 @@ useLocalStorage.setLocalItems = (keyName, value, expireDays) => {
     localStorage.setItem(keyName, JSON.stringify(newItems));
 };
 
-const calculateExpiration = (expireDays) => {
-    if (expireDays) {
-        const expireMs = expireDays * 24 * 60 * 60 * 1000;
-        return Date.now() + expireMs;
-    } else {
-        return null;
-    }
-};
-
+//---------------------------------------------------------------------------------------------
 /**
  * Sets an item in localStorage with the specified keyName and keyValue, and an optional expiration date.
- * If the keyName already exists in localStorage, the existing item with matching keyValue will be removed before adding the new item.
+ * If the keyName already exists in localStorage, the existing item with matching keyValue
+ * will be removed before adding the new item.
  *
  * @param {Object} options - An object containing the following properties:
  * @param {String} options.keyName - The key name for the item to be stored in localStorage.
@@ -97,6 +92,7 @@ useLocalStorage.setLocalItemId = ({ keyName, keyValue, expireDays }) => {
     window.localStorage.setItem(keyName, jsonArray);
 };
 
+//---------------------------------------------------------------------------------------------
 /**
  * @param {String} keyName - The key name for the item to be stored in localStorage.
  * @returns {*}
@@ -113,6 +109,7 @@ useLocalStorage.getLocalItem = (keyName) => {
     return item.value;
 }
 
+//---------------------------------------------------------------------------------------------
 /**
  * @description Get Localstorage Items
  * @param {String} keyName
@@ -128,6 +125,8 @@ useLocalStorage.getLocalItems = (keyName) => {
     return validArray;
 };
 
+//---------------------------------------------------------------------------------------------
+
 useLocalStorage.removeLocalItem = (keyName, value) => {
     const defaultItems = getLocalItems(keyName) ?? [];
     let remainItems;
@@ -140,12 +139,26 @@ useLocalStorage.removeLocalItem = (keyName, value) => {
     localStorage.setItem(keyName, JSON.stringify(remainItems));
 }
 
+//---------------------------------------------------------------------------------------------
+
 useLocalStorage.clearLocalItem = (keyName) => {
     localStorage.setItem(keyName, JSON.stringify([]));
 };
+
+//---------------------------------------------------------------------------------------------
 
 useLocalStorage.deleteLocalItem = (keyName) => {
     localStorage.removeItem(keyName)
 }
 
+//---------------------------------------------------------------------------------------------
+
+function calculateExpiration(expireDays) {
+    if (expireDays) {
+        const expireMs = expireDays * 24 * 60 * 60 * 1000;
+        return Date.now() + expireMs;
+    } else {
+        return null;
+    }
+};
 module.exports = useLocalStorage;

@@ -1,5 +1,7 @@
 const useCookie = {}
 
+//---------------------------------------------------------------------------------------------
+
 useCookie.getCookie = (name) => {
     let cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
@@ -13,6 +15,8 @@ useCookie.getCookie = (name) => {
     }
     return null;
 }
+
+//---------------------------------------------------------------------------------------------
 
 useCookie.setCookie = (name, value, options = {}) => {
     let cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
@@ -39,8 +43,12 @@ useCookie.setCookie = (name, value, options = {}) => {
     document.cookie = cookie;
 }
 
+//---------------------------------------------------------------------------------------------
+
 useCookie.deleteCookie = (name) => {
     document.cookie = `${encodeURIComponent(name)}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
 }
+
+//---------------------------------------------------------------------------------------------
 
 module.exports = useCookie;

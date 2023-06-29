@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@techigh/client-storage": "~0.0.1"
+    "@techigh/web-storage-handler": "^0.0.1"
   }
 }
